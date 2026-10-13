@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="./bp.js"></script>
+</helmet>
+<sc-if value="{{ toProd }}" hint-placeholder-val="{{ false }}">
+  <section style="background:#0b3d32;color:#f2efe7;font-family:Montserrat,Helvetica,Arial,sans-serif">
+    <div data-g="l" data-pad style="max-width:1360px;margin:0 auto;padding:52px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:32px;align-items:center">
+      <div>
+        <div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#a9bfb4">InBold Production</div>
+        <h2 style="font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(26px,3.2vw,38px);letter-spacing:-.02em;line-height:1.1;margin:12px 0 12px;max-width:20ch">Need it produced in every format and market?</h2>
+        <p style="margin:0;font-size:15.5px;line-height:1.6;color:#cfdad3;max-width:52ch">Our production team adapts, versions and produces your master creative inside your systems, up to 16 hours a day, seven days a week.</p>
+        <a href="Production.dc.html" style="display:inline-block;margin-top:22px;background:#ff5a2b;color:#fff;font-weight:700;font-size:15px;padding:13px 24px;border-radius:2px;text-decoration:none;white-space:nowrap">Go to Production →</a>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ prodLinks }}" as="l" hint-placeholder-count="4">
+          <a href="{{ l.href }}" style="display:flex;justify-content:space-between;gap:12px;padding:15px 0;border-top:1px solid rgba(255,255,255,.18);color:#f2efe7;text-decoration:none;font-family:Montserrat,sans-serif;font-weight:600;font-size:17px" style-hover="color:#ff5a2b"><span>{{ l.label }}</span><span style="color:#ff5a2b">→</span></a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+</sc-if>
+<sc-if value="{{ toAgency }}" hint-placeholder-val="{{ false }}">
+  <section style="background:#f8f7f3;color:#10201b;font-family:Montserrat,Helvetica,Arial,sans-serif;border-top:1px solid rgba(16,32,27,.12)">
+    <div data-g="l" data-pad style="max-width:1360px;margin:0 auto;padding:52px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:32px;align-items:center">
+      <div>
+        <div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#ff5a2b">InBold Agency</div>
+        <h2 style="font-family:Montserrat,Helvetica,Arial,sans-serif;font-weight:800;font-size:clamp(28px,3.4vw,42px);letter-spacing:-.025em;line-height:1.05;margin:12px 0 12px;max-width:18ch">Need the idea as well as the volume?</h2>
+        <p style="margin:0;font-size:15.5px;line-height:1.6;color:#3d4a45;max-width:52ch">Our agency in Copenhagen, Stockholm and Oslo develops brand and communications strategy and the campaigns behind it.</p>
+        <a href="Agency.dc.html" style="display:inline-block;margin-top:22px;background:#ff5a2b;color:#fff;font-weight:700;font-size:15px;padding:13px 26px;border-radius:2px;text-decoration:none;white-space:nowrap">Go to the agency →</a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <sc-for list="{{ agencyLinks }}" as="l" hint-placeholder-count="5">
+          <a href="{{ l.href }}" style="background:#ffffff;border:1px solid rgba(16,32,27,.16);border-radius:2px;padding:11px 18px;color:#10201b;text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap" style-hover="border-color:#ff5a2b">{{ l.label }}</a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:360},&quot;to&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;production&quot;,&quot;agency&quot;],&quot;default&quot;:&quot;production&quot;,&quot;tsType&quot;:&quot;'production'|'agency'&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const to = (this.props && this.props.to) || 'production';
+    return {
+      toProd: to === 'production',
+      toAgency: to === 'agency',
+      prodLinks: [['Marketing back office','Production Back Office.dc.html'],['Publishing','Production Publishing.dc.html'],['Print and packaging','Production Print.dc.html'],['Ad production','Production Ads.dc.html']].map(([label, href]) => ({ label, href })),
+      agencyLinks: [['Branding','Branding.dc.html'],['Brand activation','Activation.dc.html'],['PR & media relations','PR.dc.html'],['Influencers','Influencers.dc.html'],['Digital & media','Digital.dc.html']].map(([label, href]) => ({ label, href }))
+    };
+  }
+}
+</script>
+</body>
+</html>

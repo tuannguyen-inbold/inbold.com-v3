@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</helmet>
+<div style="height:{{ spacer }}px"></div>
+<header ref="{{ hdRef }}" style="position:fixed;top:0;left:0;right:0;z-index:90;background:#f8f7f3;border-bottom:1px solid {{ border }};font-family:Montserrat,Helvetica,Arial,sans-serif">
+  <div style="background:#0b3d32"><nav style="max-width:1360px;margin:0 auto;display:flex;align-items:center;gap:12px 18px;padding:11px 28px">
+    <a href="Home v2.dc.html" style="font-weight:800;font-size:21px;letter-spacing:-.02em;color:#fff;text-decoration:none">InBold<span style="color:{{ accent }}">.</span></a>
+    <div style="display:flex;gap:2px;padding:3px;border-radius:2px;border:1px solid rgba(255,255,255,.22);font-size:12px;font-weight:700;letter-spacing:.04em">
+      <a href="Agency.dc.html" style="text-decoration:none;font:inherit;padding:6px 12px;border-radius:2px;white-space:nowrap;background:{{ agencyBg }};color:{{ agencyFg }}">Agency</a>
+      <a href="Production.dc.html" style="text-decoration:none;font:inherit;padding:6px 12px;border-radius:2px;white-space:nowrap;background:{{ prodBg }};color:{{ prodFg }}">Production</a>
+    </div>
+    <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;align-items:center;gap:16px;margin-left:auto;font-size:13px;font-weight:600">
+        <sc-for list="{{ shared }}" as="item" hint-placeholder-count="6">
+          <a href="{{ item.href }}" style="text-decoration:none;white-space:nowrap;color:{{ item.topColor }};font-weight:{{ item.weight }}">{{ item.label }}</a>
+        </sc-for>
+      </div>
+      <a href="Book a Call.dc.html" style="background:#ff5a2b;color:#fff;font-size:13px;font-weight:700;padding:8px 16px;border-radius:2px;text-decoration:none;white-space:nowrap">Book a call</a>
+    </sc-if>
+    <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggle }}" aria-label="Menu" aria-expanded="{{ open }}" style="margin-left:auto;width:44px;height:44px;border:1px solid rgba(255,255,255,.3);background:transparent;border-radius:2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0">
+        <span style="display:block;width:18px;height:2px;background:#fff"></span>
+        <span style="display:block;width:18px;height:2px;background:#fff"></span>
+        <span style="display:block;width:18px;height:2px;background:#fff"></span>
+      </button>
+    </sc-if>
+  </nav></div>
+  <sc-if value="{{ showSubDesktop }}" hint-placeholder-val="{{ false }}">
+    <div style="border-top:1px solid {{ border }}">
+      <div style="max-width:1360px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:4px;overflow-x:auto;font-size:13px;font-weight:600;scrollbar-width:none">
+        <span style="flex:none;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:{{ accent }};padding-right:10px">{{ sectionLabel }}</span>
+        <sc-for list="{{ sub }}" as="s" hint-placeholder-count="6">
+          <a href="{{ s.href }}" style="flex:none;padding:10px;color:{{ s.color }};font-weight:{{ s.weight }};text-decoration:none;white-space:nowrap;border-bottom:2px solid {{ s.line }}">{{ s.label }}</a>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ drawer }}" hint-placeholder-val="{{ false }}">
+    <div style="border-top:1px solid {{ border }};background:#f8f7f3;max-height:calc(100vh - 68px);overflow-y:auto;padding:8px 20px 24px">
+      <sc-if value="{{ hasSub }}" hint-placeholder-val="{{ false }}">
+        <div style="font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#ff5a2b;padding:14px 0 4px">{{ sectionLabel }}</div>
+        <sc-for list="{{ sub }}" as="s" hint-placeholder-count="6">
+          <a href="{{ s.href }}" style="display:flex;justify-content:space-between;align-items:center;min-height:44px;color:#10201b;font-weight:{{ s.weight }};font-size:15px;text-decoration:none;border-bottom:1px solid rgba(16,32,27,.1)">{{ s.label }}<span style="color:#ff5a2b">→</span></a>
+        </sc-for>
+      </sc-if>
+      <div style="font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#3d4a45;padding:18px 0 4px">InBold</div>
+      <sc-for list="{{ shared }}" as="item" hint-placeholder-count="6">
+        <a href="{{ item.href }}" style="display:flex;align-items:center;min-height:44px;color:#10201b;font-weight:{{ item.weight }};font-size:15px;text-decoration:none;border-bottom:1px solid rgba(16,32,27,.1)">{{ item.label }}</a>
+      </sc-for>
+      <a href="Book a Call.dc.html" style="display:block;text-align:center;margin-top:20px;background:#ff5a2b;color:#fff;font-size:15px;font-weight:700;padding:14px;border-radius:2px;text-decoration:none">Book a call</a>
+    </div>
+  </sc-if>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;active&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;mode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;global&quot;,&quot;agency&quot;,&quot;production&quot;],&quot;default&quot;:&quot;agency&quot;,&quot;tsType&quot;:&quot;'global'|'agency'|'production'&quot;},&quot;tone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;'light'|'dark'&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#ff5a2b&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  hd = React.createRef();
+  state = { open: false, w: typeof window !== 'undefined' ? window.innerWidth : 1400 };
+  componentDidMount() { this.ro = new ResizeObserver(() => { const el = this.hd.current; if (el && !this.state.compact) { const hh = Math.round(el.getBoundingClientRect().height); if (hh !== this.state.sp) this.setState({ sp: hh }); } }); if (this.hd.current) this.ro.observe(this.hd.current); this.onR = () => this.setState({ w: window.innerWidth }); window.addEventListener('resize', this.onR); this.lastY = window.scrollY; this.onS = () => { const y = window.scrollY; const c = y > 160 && y > this.lastY; if (Math.abs(y - this.lastY) > 6) { if (c !== !!this.state.compact) this.setState({ compact: c }); this.lastY = y; } }; window.addEventListener('scroll', this.onS, { passive: true }); }
+  componentWillUnmount() { this.ro && this.ro.disconnect(); window.removeEventListener('resize', this.onR); window.removeEventListener('scroll', this.onS); }
+  renderVals() {
+    const p = this.props || {};
+    const dark = p.tone === 'dark';
+    const mode = p.mode || 'agency';
+    const prod = mode === 'production', global = mode === 'global';
+    const accent = p.accent || '#ff5a2b';
+    const fg = dark ? '#f8f7f3' : '#10201b';
+    const muted = dark ? '#e9dfc8' : '#3d4a45';
+    const active = p.active || '';
+    const agencySub = [['Overview', 'Agency.dc.html', 'overview'], ['Branding', 'Branding.dc.html', 'branding'], ['Brand activation', 'Activation.dc.html', 'activation'], ['PR & media relations', 'PR.dc.html', 'pr'], ['Influencers', 'Influencers.dc.html', 'influencers'], ['Digital & media', 'Digital.dc.html', 'digital']];
+    const prodSub = [['Overview', 'Production.dc.html', 'overview'], ['Marketing back office', 'Production Back Office.dc.html', 'backoffice'], ['Publishing', 'Production Publishing.dc.html', 'publishing'], ['Print and packaging', 'Production Print.dc.html', 'print'], ['Ad production', 'Production Ads.dc.html', 'ads'], ['Your production team', 'Production Team.dc.html', 'team'], ['Compliance', 'Production Compliance.dc.html', 'compliance']];
+    const shared = [['Work', 'Work.dc.html', 'work'], ['Markets', 'Markets.dc.html', 'markets'], ['Company', 'Company.dc.html', 'company'], ['Insights', 'Insights.dc.html', 'insights'], ['Careers', 'Careers.dc.html', 'careers'], ['Contact', 'Contact.dc.html', 'contact']];
+    const map = ([label, href, key]) => { const on = key === active; return { label, href, topColor: on ? '#fff' : '#e9dfc8', color: on ? fg : muted, weight: on ? '800' : '600', line: on ? accent : 'transparent' }; };
+    const desktop = this.state.w >= 1200;
+    const hasSub = !global;
+    const pillOnFg = dark ? '#0b3d32' : '#f8f7f3';
+    return {
+      hdRef: this.hd, spacer: this.state.sp || (desktop && hasSub ? 108 : 66), desktop, mobile: !desktop, open: this.state.open, drawer: !desktop && this.state.open,
+      toggle: () => this.setState(s => ({ open: !s.open })),
+      hasSub, showSubDesktop: desktop && hasSub && !this.state.compact,
+      shared: shared.map(map), sub: (prod ? prodSub : agencySub).map(map),
+      sectionLabel: prod ? 'Production' : 'Agency',
+      fg, accent,
+      agencyBg: !global && !prod ? '#f8f7f3' : 'transparent', agencyFg: !global && !prod ? '#0b3d32' : '#e9dfc8',
+      prodBg: prod ? '#ff5a2b' : 'transparent', prodFg: prod ? '#fff' : '#e9dfc8',
+      bg: dark ? 'rgba(11,61,50,.95)' : 'rgba(248,247,243,.94)',
+      border: dark ? 'rgba(255,255,255,.12)' : 'rgba(16,32,27,.12)'
+    };
+  }
+}
+</script>
+</body>
+</html>

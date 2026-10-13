@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work – selected cases | InBold</title>
+<meta name="description" content="Selected branding, PR, activation, influencer, digital and production work for Nordic and global brands.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://inbold.com/#org","name":"InBold","url":"https://inbold.com","email":"hello@inbold.com","numberOfEmployees":147,"foundingDate":"2024","sameAs":["https://www.linkedin.com/company/inbold-1","https://www.facebook.com/inboldagency","https://www.instagram.com/inbold_agency/"],"address":[{"@type":"PostalAddress","streetAddress":"Dronningens Tværgade 7B","postalCode":"1302","addressLocality":"Copenhagen K","addressCountry":"DK"},{"@type":"PostalAddress","streetAddress":"Götgatan 22A","postalCode":"118 46","addressLocality":"Stockholm","addressCountry":"SE"},{"@type":"PostalAddress","streetAddress":"Kristian Augusts gate 12","postalCode":"0164","addressLocality":"Oslo","addressCountry":"NO"},{"@type":"PostalAddress","streetAddress":"400/8b-10 Ung Van Khiem, Thanh My Tay Ward","postalCode":"","addressLocality":"Ho Chi Minh City","addressCountry":"VN"}]}</script>
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#f8f7f3">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#f8f7f3"/>
+    <text x="600" y="400" font-family="Georgia, serif" font-size="170" font-weight="700" fill="#10201b" text-anchor="middle">InBold<tspan fill="#ff5a2b">.</tspan></text>
+    <text x="600" y="490" font-family="Arial, sans-serif" font-size="42" letter-spacing="8" fill="#3d4a45" text-anchor="middle">WORK</text>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#f8f7f3}*{box-sizing:border-box}html,body{overflow-x:hidden}a{color:#ff5a2b}a:hover{color:#c8431a}</style>
+<script src="./cases.js"></script>
+<script src="./bp.js"></script>
+</helmet>
+<div data-screen-label="Work" style="font-family:Montserrat,Helvetica,Arial,sans-serif;color:#10201b;background:#f8f7f3">
+  <dc-import name="Nav" mode="global" active="work" tone="light" accent="#ff5a2b" hint-size="100%,100px" style="position:sticky;top:0;z-index:90"></dc-import>
+  <!-- HERO -->
+  <section data-pad style="max-width:1360px;margin:0 auto;padding:40px 28px 36px">
+    <div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3d4a45"><a href="Home v2.dc.html" style="color:#3d4a45;text-decoration:none">Home</a> / <span style="color:#10201b">Work</span></div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;margin-top:24px">
+      <h1 style="font-weight:800;font-size:clamp(38px,6vw,80px);line-height:1;letter-spacing:-.03em;margin:0;max-width:12ch">Stories, better shared.</h1>
+      <p style="margin:0;font-size:17px;line-height:1.6;color:#3d4a45;max-width:46ch">Selected work across branding, activation, PR, influencers, digital and production — for Nordic and global brands.</p>
+    </div>
+  </section>
+  <!-- FILTER + GRID -->
+  <section style="background:#e9dfc8"><div data-pad style="max-width:1360px;margin:0 auto;padding:40px 28px 64px">
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px">
+      <sc-for list="{{ filters }}" as="f" hint-placeholder-count="7">
+        <button onClick="{{ f.pick }}" style="all:unset;cursor:pointer;font-size:13.5px;font-weight:700;padding:10px 16px;background:{{ f.bg }};color:{{ f.fg }}">{{ f.label }}</button>
+      </sc-for>
+    </div>
+    <div data-g="m" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:32px 6px">
+      <sc-for list="{{ cases }}" as="c" hint-placeholder-count="8">
+        <a href="{{ c.href }}" style="text-decoration:none;color:#10201b;display:flex;flex-direction:column;gap:12px">
+          <div style="width:100%;aspect-ratio:4/3;background-color:#d9cdb3;background-size:cover;background-position:center;background-image:{{ c.bgimg }}"></div>
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#ff5a2b">{{ c.service }}</div>
+            <div style="font-weight:800;font-size:20px;margin:6px 0 0;letter-spacing:-.01em">{{ c.client }}</div>
+            <p style="margin:6px 0 0;font-size:14px;line-height:1.5;color:#3d4a45">{{ c.teaser }}</p>
+            <div style="margin-top:10px;font-weight:700;font-size:13.5px"><span style="border-bottom:2px solid #ff5a2b;padding-bottom:2px">Read the case →</span></div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </div></section>
+  <!-- CTA -->
+  <section style="background:#0b3d32"><div data-pad style="max-width:1360px;margin:0 auto;padding:60px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px">
+    <h2 style="font-weight:800;font-size:clamp(28px,4vw,48px);letter-spacing:-.02em;margin:0;color:#fff;max-width:20ch">Stories are better shared. Should we share yours?</h2>
+    <a href="Book a Call.dc.html" style="background:#ff5a2b;color:#fff;font-weight:700;font-size:15px;padding:13px 24px;border-radius:2px;text-decoration:none;white-space:nowrap">Book a call</a>
+  </div></section>
+  <dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { f: 'All', ready: !!window.INBOLD_CASES };
+  componentDidMount(){ if(!this.state.ready){ this.iv=setInterval(()=>{ if(window.INBOLD_CASES){ clearInterval(this.iv); this.setState({ready:true}); } },60); } }
+  componentWillUnmount(){ clearInterval(this.iv); }
+  renderVals(){
+    const all=window.INBOLD_CASES||[];
+    const F=['All','Branding','Activation','PR','Influencers','Digital','Production'];
+    const list=this.state.f==='All'?all:all.filter(c=>c.filter===this.state.f);
+    return {
+      filters:F.map(l=>({label:l,bg:l===this.state.f?'#10201b':'#f8f7f3',fg:l===this.state.f?'#fff':'#10201b',pick:()=>this.setState({f:l})})),
+      cases:list.map(c=>({...c,href:'Case.dc.html?case='+c.slug,bgimg:'url("'+c.img+'")',teaser:/^\[/.test(c.headline)?'':c.headline}))
+    };
+  }
+}
+</script>
+</body>
+</html>

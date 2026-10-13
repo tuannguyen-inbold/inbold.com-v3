@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="./bp.js"></script>
+</helmet>
+<div style="font-family:Montserrat,Helvetica,Arial,sans-serif;color:#10201b;background:#f8f7f3">
+
+  <section data-pad style="max-width:1360px;margin:0 auto;padding:46px 28px 0">
+    <div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3d4a45">Production / {{ d.crumb }}</div>
+    <h1 style="font-weight:800;font-size:clamp(32px,4.8vw,58px);line-height:1.05;letter-spacing:-.025em;margin:16px 0 0;max-width:18ch;text-wrap:balance">{{ d.h1 }}</h1>
+    <p style="max-width:58ch;font-size:17px;line-height:1.6;color:#3d4a45;margin:18px 0 0;text-wrap:pretty">{{ d.intro }}</p>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:26px">
+      <a href="Production.dc.html#contact" style="background:#ff5a2b;color:#fff;font-weight:700;font-size:15px;padding:13px 24px;border-radius:2px;text-decoration:none;white-space:nowrap">Book 20 minutes</a>
+      <a href="#case" style="color:#10201b;font-weight:600;font-size:14.5px;text-decoration:none;border-bottom:2px solid #ff5a2b;padding-bottom:2px;white-space:nowrap">See the work →</a>
+    </div>
+    <div data-g="m" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:6px;margin-top:40px">
+      <sc-for list="{{ d.heroImgs }}" as="img" hint-placeholder-count="3">
+        <img src="{{ img }}" alt="" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#e9dfc8">
+      </sc-for>
+    </div>
+    <div data-g="s" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;border-top:1px solid rgba(16,32,27,.16);margin-top:22px;padding:18px 0 46px">
+      <sc-for list="{{ facts }}" as="f" hint-placeholder-count="4">
+        <div><div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3d4a45">{{ f.k }}</div><div style="font-size:14.5px;font-weight:600;line-height:1.45;margin-top:6px">{{ f.v }}</div></div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:#e9dfc8">
+    <div data-pad style="max-width:1360px;margin:0 auto;padding:56px 28px">
+      <div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3d4a45">{{ d.list.eyebrow }}</div>
+      <h2 style="font-weight:800;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.02em;margin:12px 0 28px;max-width:24ch">{{ d.list.title }}</h2>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr);gap:32px;align-items:start">
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ listItems }}" as="it" hint-placeholder-count="6">
+            <button onClick="{{ it.onClick }}" style="all:unset;cursor:pointer;display:grid;grid-template-columns:28px 1fr 16px;gap:6px;align-items:center;padding:13px 0;border-bottom:1px solid rgba(16,32,27,.25);font-size:14.5px;font-weight:{{ it.weight }};color:{{ it.color }}"><span style="font-size:11px;color:{{ it.numColor }}">{{ it.n }}</span><span>{{ it.label }}</span><span style="color:#ff5a2b">{{ it.arrow }}</span></button>
+          </sc-for>
+        </div>
+        <div>
+          <img src="{{ d.listImg }}" alt="" style="width:100%;aspect-ratio:16/8;object-fit:cover;display:block">
+          <h3 style="font-size:22px;font-weight:700;margin:20px 0 0">{{ listSel.label }}</h3>
+          <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:#3d4a45;max-width:60ch">{{ listSel.caption }}</p>
+          <sc-if value="{{ d.list.note }}" hint-placeholder-val="{{ false }}"><p style="margin:12px 0 0;font-size:13px;color:#3d4a45;border:1px dashed rgba(16,32,27,.3);padding:8px 10px;display:inline-block">{{ d.list.note }}</p></sc-if>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ hasMarket }}" hint-placeholder-val="{{ false }}">
+    <section style="background:#f8f7f3">
+      <div data-pad style="max-width:1360px;margin:0 auto;padding:56px 28px">
+        <div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3d4a45">Market support</div>
+        <h2 style="font-weight:800;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.02em;margin:12px 0 12px">Market support on behalf of HQ</h2>
+        <p style="max-width:66ch;font-size:15.5px;line-height:1.6;color:#3d4a45;margin:0 0 28px">Our project managers work on behalf of your headquarters toward the people who use the brand locally: markets, franchises, distributors and sales offices. They get the help they need, and HQ keeps control and the overview.</p>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr);gap:32px;align-items:start">
+          <div style="display:flex;flex-direction:column">
+            <sc-for list="{{ marketItems }}" as="it" hint-placeholder-count="6">
+              <button onClick="{{ it.onClick }}" style="all:unset;cursor:pointer;display:grid;grid-template-columns:28px 1fr 16px;gap:6px;align-items:center;padding:13px 0;border-bottom:1px solid rgba(16,32,27,.25);font-size:14.5px;font-weight:{{ it.weight }};color:{{ it.color }}"><span style="font-size:11px;color:{{ it.numColor }}">{{ it.n }}</span><span>{{ it.label }}</span><span style="color:#ff5a2b">{{ it.arrow }}</span></button>
+            </sc-for>
+          </div>
+          <div>
+            <img src="img/prod/team-saigon.webp" alt="" style="width:100%;aspect-ratio:16/8;object-fit:cover;display:block">
+            <h3 style="font-size:22px;font-weight:700;margin:20px 0 0">{{ marketSel.label }}</h3>
+            <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:#3d4a45;max-width:60ch">{{ marketSel.caption }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ hasWhy }}" hint-placeholder-val="{{ false }}">
+    <section data-pad style="max-width:1360px;margin:0 auto;padding:56px 28px">
+      <div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3d4a45">Why HQ says yes</div>
+      <h2 style="font-weight:800;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.02em;margin:12px 0 28px;max-width:26ch">Brand control at the center, speed in the markets</h2>
+      <div data-g="m" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px">
+        <sc-for list="{{ why }}" as="w" hint-placeholder-count="3">
+          <div style="border-top:1px solid #10201b;padding-top:16px"><div style="font-weight:700;font-size:16px">{{ w.t }}</div><p style="margin:8px 0 0;font-size:14.5px;line-height:1.55;color:#3d4a45">{{ w.d }}</p></div>
+        </sc-for>
+      </div>
+    </section>
+  </sc-if>
+
+  <section style="background:{{ flowBg }}">
+    <div data-pad style="max-width:1360px;margin:0 auto;padding:56px 28px">
+      <div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3d4a45">Workflow</div>
+      <h2 style="font-weight:800;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.02em;margin:12px 0 12px">{{ d.flow.title }}</h2>
+      <p style="max-width:60ch;font-size:15.5px;line-height:1.6;color:#3d4a45;margin:0 0 30px">{{ d.flow.intro }}</p>
+      <div data-g="s" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="6">
+          <div style="border-top:2px solid rgba(16,32,27,.25);padding-top:12px;display:flex;flex-direction:column;gap:6px">
+            <span style="font-size:11px;font-weight:700;color:#ff5a2b">{{ s.n }}</span>
+            <span style="font-weight:700;font-size:16px">{{ s.t }}</span>
+            <span style="font-size:13.5px;line-height:1.5;color:#3d4a45">{{ s.d }}</span>
+            <sc-if value="{{ s.tag }}" hint-placeholder-val="{{ false }}"><span style="align-self:flex-start;background:#e9dfc8;font-size:11px;font-weight:700;padding:3px 7px">{{ s.tag }}</span></sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ d.flowImgs }}" hint-placeholder-val="{{ false }}">
+        <div data-g="m" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:6px;margin-top:36px">
+          <sc-for list="{{ d.flowImgs }}" as="img" hint-placeholder-count="3"><img src="{{ img }}" alt="" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block"></sc-for>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <section id="case" style="background:#e9dfc8;scroll-margin-top:110px">
+    <div data-pad style="max-width:1360px;margin:0 auto;padding:56px 28px">
+      <div data-g="l" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px">
+        <div>
+          <div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3d4a45">{{ d.caseB.eyebrow }}</div>
+          <h2 style="font-weight:800;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.02em;margin:12px 0 16px">{{ d.caseB.title }}</h2>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:15px;line-height:1.6;color:#3d4a45;max-width:58ch">
+            <sc-for list="{{ d.caseB.paras }}" as="p" hint-placeholder-count="2"><p style="margin:0">{{ p }}</p></sc-for>
+            <sc-if value="{{ d.caseB.note }}" hint-placeholder-val="{{ false }}"><p style="margin:0;font-size:13px;border:1px dashed rgba(16,32,27,.3);padding:8px 10px">{{ d.caseB.note }}</p></sc-if>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ stats }}" as="st" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:14px;align-items:center;border-top:1px solid rgba(16,32,27,.25);padding:16px 0"><span style="font-size:32px;font-weight:800">{{ st.n }}</span><span style="font-size:13.5px;color:#3d4a45">{{ st.l }}</span></div>
+          </sc-for>
+        </div>
+      </div>
+      <div data-g="m" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:6px;margin-top:32px">
+        <sc-for list="{{ d.caseB.imgs }}" as="img" hint-placeholder-count="3"><img src="{{ img }}" alt="" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block"></sc-for>
+      </div>
+      <sc-if value="{{ d.caseB.imgNote }}" hint-placeholder-val="{{ false }}"><p style="margin:12px 0 0;font-size:13px;color:#3d4a45;border:1px dashed rgba(16,32,27,.3);padding:8px 10px;display:inline-block">{{ d.caseB.imgNote }}</p></sc-if>
+    </div>
+  </section>
+
+  <sc-if value="{{ hasReport }}" hint-placeholder-val="{{ false }}">
+    <section data-pad style="max-width:1360px;margin:0 auto;padding:56px 28px">
+      <div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3d4a45">What we report</div>
+      <h2 style="font-weight:800;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.02em;margin:12px 0 26px;max-width:24ch">The numbers an in-house lead is measured on</h2>
+      <div data-g="s" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px">
+        <sc-for list="{{ report }}" as="r" hint-placeholder-count="4"><div style="border-top:1px solid #10201b;padding-top:14px"><div style="font-size:30px;font-weight:800">{{ r.n }}</div><div style="font-size:14px;color:#3d4a45;margin-top:4px">{{ r.l }}</div></div></sc-for>
+      </div>
+      <p style="margin:22px 0 0;font-size:15px;color:#3d4a45">Reported live in Power BI, so your team and procurement look at the same numbers.</p>
+      <p style="margin:10px 0 0;font-size:13px;color:#3d4a45;border:1px dashed rgba(16,32,27,.3);padding:8px 10px;display:inline-block">[Fill the four figures from the Bonnier and Aller accounts before launch.]</p>
+    </section>
+    <section style="background:#e9dfc8">
+      <div data-pad style="max-width:1360px;margin:0 auto;padding:56px 28px">
+        <div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3d4a45">Crafts</div>
+        <h2 style="font-weight:800;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.02em;margin:12px 0 24px">What the team produces</h2>
+        <div data-g="m" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+          <a href="Production Ads.dc.html" style="text-decoration:none;color:#10201b;border-top:1px solid #10201b;padding-top:14px;display:flex;flex-direction:column;gap:6px"><b style="font-size:17px">Ad production</b><span style="font-size:14px;color:#3d4a45">Print and digital, every format and language →</span></a>
+          <a href="Production Publishing.dc.html" style="text-decoration:none;color:#10201b;border-top:1px solid #10201b;padding-top:14px;display:flex;flex-direction:column;gap:6px"><b style="font-size:17px">Publishing</b><span style="font-size:14px;color:#3d4a45">Magazines and newspapers, every publishing day →</span></a>
+          <a href="Production Print.dc.html" style="text-decoration:none;color:#10201b;border-top:1px solid #10201b;padding-top:14px;display:flex;flex-direction:column;gap:6px"><b style="font-size:17px">Print and packaging</b><span style="font-size:14px;color:#3d4a45">Artwork to print-ready files, your printers →</span></a>
+          <a href="Production Back Office.dc.html" style="text-decoration:none;color:#10201b;border-top:1px solid #10201b;padding-top:14px;display:flex;flex-direction:column;gap:6px"><b style="font-size:17px">Marketing back office</b><span style="font-size:14px;color:#3d4a45">Full service for every market, under your brand →</span></a>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ hasFaq }}" hint-placeholder-val="{{ false }}">
+    <section data-pad style="max-width:1360px;margin:0 auto;padding:56px 28px">
+      <div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3d4a45">Questions we get</div>
+      <h2 style="font-weight:800;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.02em;margin:12px 0 24px;max-width:24ch">{{ faqTitle }}</h2>
+      <div style="max-width:780px;display:flex;flex-direction:column">
+        <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="5">
+          <div style="border-bottom:1px solid rgba(16,32,27,.16)">
+            <button onClick="{{ q.onClick }}" style="all:unset;cursor:pointer;width:100%;display:flex;justify-content:space-between;gap:16px;padding:16px 0;font-weight:700;font-size:15px"><span>{{ q.q }}</span><span style="flex:none;font-size:18px;line-height:1">{{ q.icon }}</span></button>
+            <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0 0 18px;font-size:14.5px;line-height:1.6;color:#3d4a45;max-width:64ch">{{ q.a }}</p></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </sc-if>
+
+  <section style="background:#0b3d32;color:#fff">
+    <div data-pad style="max-width:1360px;margin:0 auto;padding:56px 28px">
+      <div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e9dfc8">{{ d.comp.eyebrow }}</div>
+      <h2 style="font-weight:800;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.02em;margin:12px 0 28px">{{ d.comp.title }}</h2>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr);gap:32px;align-items:start">
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ compItems }}" as="it" hint-placeholder-count="4">
+            <button onClick="{{ it.onClick }}" style="all:unset;cursor:pointer;display:grid;grid-template-columns:28px 1fr 16px;gap:6px;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.22);font-size:14.5px;font-weight:{{ it.weight }};color:{{ it.color }}"><span style="font-size:11px;color:{{ it.numColor }}">{{ it.n }}</span><span>{{ it.label }}</span><span style="color:#ff5a2b">{{ it.arrow }}</span></button>
+          </sc-for>
+        </div>
+        <div>
+          <h3 style="font-size:24px;font-weight:700;margin:0">{{ compSel.label }}</h3>
+          <p style="margin:10px 0 0;font-size:15px;line-height:1.6;color:#cfe0d9;max-width:60ch">{{ compSel.lead }}</p>
+          <div data-g="s" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:20px;margin-top:26px">
+            <sc-for list="{{ compSel.points }}" as="pt" hint-placeholder-count="3">
+              <div style="border-top:1px solid rgba(255,255,255,.3);padding-top:12px;font-size:13.5px;line-height:1.5;color:#fff"><div style="font-size:11px;color:#e9dfc8;margin-bottom:6px">{{ pt.n }}</div>{{ pt.t }}</div>
+            </sc-for>
+          </div>
+          <a href="Production Compliance.dc.html" style="display:inline-block;margin-top:22px;color:#fff;font-weight:600;font-size:14px;text-decoration:none;border-bottom:2px solid #ff5a2b;padding-bottom:2px">Compliance in detail →</a>
+        </div>
+      </div>
+      <div data-g="l" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:24px;align-items:end;border-top:1px solid rgba(255,255,255,.22);margin-top:56px;padding-top:36px">
+        <div>
+          <h2 style="font-weight:800;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.02em;margin:0">{{ d.cta }}</h2>
+          <p style="margin:12px 0 0;font-size:15.5px;line-height:1.6;color:#cfe0d9;max-width:56ch">{{ d.ctaText }}</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:22px;justify-content:flex-end">
+          <a href="Production.dc.html#contact" style="background:#ff5a2b;color:#fff;font-weight:700;font-size:15px;padding:13px 24px;border-radius:2px;text-decoration:none;white-space:nowrap">Book 20 minutes</a>
+          <a href="Production.dc.html#contact" style="color:#fff;font-weight:600;font-size:14.5px;text-decoration:none;border-bottom:2px solid #ff5a2b;padding-bottom:2px;white-space:nowrap">Send us a message →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;service&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ads&quot;,&quot;print&quot;,&quot;publishing&quot;,&quot;backoffice&quot;,&quot;team&quot;],&quot;default&quot;:&quot;ads&quot;,&quot;tsType&quot;:&quot;'ads'|'print'|'publishing'|'backoffice'|'team'&quot;}}">
+const I = n => 'img/prod/' + n + '.webp';
+const MARKET = [
+  ['Local market support','One contact for every market. Briefs, assets, adaptations and questions handled by a PM who knows the brand, in the local language where it matters.'],
+  ['Brand policing','Local usage checked against the guidelines before it goes out. Deviations flagged, corrected or escalated to HQ, with approvals logged.'],
+  ['HQ kept updated','A monthly view of what each market used, changed and asked for. One report, one dashboard, so HQ sees all local activity without chasing it.'],
+  ['Franchise and distributor kits','Launch and campaign kits built once at HQ level and handed to every partner in the format they can use.'],
+  ['Local requests, central rules','Markets order what they need. We produce it inside HQ rules, so local speed does not cost brand consistency.'],
+  ['Scale without headcount','The same PM team serves ten markets or forty. HQ adds markets, not people.']];
+const DATA = {
+  ads: {
+    crumb: 'Ad production', h1: 'Ads in volume, on deadline, in every market',
+    intro: 'We produce ads for publishers, retailers and brands that need many of them, in many formats and languages, every day. More than 80,000 ads in 2026.',
+    heroImgs: [I('boconcept-banners'), I('davidsen-ads'), I('magazine-spreads')],
+    facts: [['Coverage','Two shifts, up to seven days a week. Our team works while you sleep.'],['Turnaround','From express 1-hour turnaround to what works best in your workflow'],['Languages','Nordic in-house. 150+ further languages through transcreation'],['Systems','We work in yours, or our Color Flow platform can manage the entire workflow.']],
+    list: { eyebrow: 'What we produce', title: 'From one master to every format', items: [
+      ['Newspaper and magazine ads','Built from advertiser material to the title’s specifications.'],
+      ['Digital banners','Static and animated, in all standard sizes.'],
+      ['Social formats','Still and video, cut for each platform.'],
+      ['Retail and offer ads','Weekly price and product changes across stores and markets.'],
+      ['Format and language versions','One approved master, adapted to each market. Versioning is automated in templates, and a person checks every version.'],
+      ['Image work','Retouch, cut-outs and color correction as part of the ad order.']] },
+    listImg: I('magazine-spreads'),
+    flow: { title: 'From order to published ad', intro: 'An order arrives in your order system and is picked up by the shift on duty. Three of the six steps have an automated check that runs before a person looks at the ad.', steps: [
+      ['Preflight','Brief language checked, images matched to the text','AI check'],['Design','Built by a designer on your account',''],['Design QC','Layout verified against your graphic specifications','AI check'],['Content QC','Final text compared with the corrected brief','AI check'],['Approval','Shift lead signs off, then your approval flow',''],['Publish','Delivered back into your system','']] },
+    caseB: { eyebrow: 'Client example', title: 'Bonnier News, Scandinavia', paras: ['Since 2026 we run a dedicated ad production team for Bonnier News, the largest publishing house in Northern Europe. The team produces newspaper ads for Swedish titles and works only for Bonnier.','It is led by our Danish Head of Production with native Swedish and Finnish shift leads. The team sits on its own floor in our Saigon building, with access limited to the people on the account.'], note: '[Full case story with numbers follows in phase 2, after approval from Bonnier News]', stats: [['2','shifts a day'],['100%','dedicated designers and shift leads'],['80,000+','ads produced in 2026']], imgs: [I('team-saigon'), I('floor-saigon'), I('building-saigon')], imgNote: '[Image to come: Bonnier News ad, as published. Needs OK from the client]' },
+    comp: { eyebrow: 'Compliance in ad production', title: 'What we check before an ad leaves us', items: [
+      ['Advertiser data','Handled under a data agreement with EU Standard Contractual Clauses.',['Advertiser material stays in your order system. Nothing is moved to private devices.','Access is limited to the people on your account, by name.','Deletion on request, confirmed in writing.']],
+      ['AI-made content','Flagged to you, and labeled where Article 50 of the EU AI Act requires it.',['Our automated checks run before a person looks at the ad, never instead of one.','A named shift lead signs off on every ad.','Your material is never used to train a model.']],
+      ['Green claims','Environmental wording checked against the EU EmpCo rules and raised with you before delivery.',['Claims checked against the Empowering Consumers directive.','Unsupported wording flagged back to you before the ad is published.','Checklist shared with your team on request.']],
+      ['Confidentiality','Unpublished ads and campaigns stay on access-limited floors and separate networks.',['NDA with every person on the account, not only the company.','A dedicated floor for publishing clients, by name access.','No ad shown or reused for another client.']]] },
+    cta: 'Test us on real orders', ctaText: 'Send us a week of typical ad orders. We produce them to your specifications, and you compare quality, speed and price with what you have today.'
+  },
+  print: {
+    crumb: 'Print and packaging', h1: 'Catalogs, print and packaging, ready for your printer',
+    intro: 'Catalogs, brochures and packaging, your own brand or private label. Artwork, market and language versions, repro and print-ready files. We deliver to your printers and their specifications. You keep your print suppliers.',
+    heroImgs: [I('ambu-ifu'), I('ambu-labels'), I('nilfisk-print')],
+    facts: [['Scope','From master design to print-ready file'],['Markets','[NUMBER OF LANGUAGES AND MARKETS]'],['Printers','Yours. We follow their specifications'],['Regulated products','Experience with medical device packaging']],
+    list: { eyebrow: 'What we produce', title: 'One master design, every catalog and every pack', items: [
+      ['Artwork from master design','The approved design applied to each pack size and format, your own brand or private label.'],
+      ['Market and language versions','Text, legal marks and barcodes changed per market, layout kept.'],
+      ['Repro','Color separation, trapping and adaptation to the print method.'],
+      ['Print-ready files','Preflighted to the printer’s specification, with a preflight report.'],
+      ['Labels, inserts and instructions','The printed material inside and on the pack.'],
+      ['Catalogs, brochures and price lists','Seasonal catalogs and product sheets in several languages, with prices and product data from your systems. Product images enhanced and extended with AI where it saves a new shoot.']] },
+    listImg: I('ambu-labels'),
+    flow: { title: 'From dieline to printer', intro: 'Every job starts with the dieline and the printer’s specification. Text is compared with your approved copy before a person checks the artwork.', steps: [
+      ['Brief check','Dieline, print specification and approved copy in place',''],['Artwork','Master design applied to the format',''],['Versions','Language and market changes',''],['Artwork QC','Text compared with approved copy. Barcodes and marks checked','AI check'],['Approval','In your approval flow, with version history',''],['Print-ready','Preflighted files sent to your printer','']] },
+    caseB: { eyebrow: 'Client examples', title: 'Ambu, Nilfisk and Fleggaard', paras: ['Ambu makes medical devices. Every text on a pack is regulated, and a wrong label can stop a shipment. [AMBU: what we produce, number of products, number of markets]','For Nilfisk we support marketing in 120 countries, packaging included. [NILFISK: packaging volume per year, number of languages] For Fleggaard, a retail chain, we produce catalogs and private label packaging. [FLEGGAARD: catalog pages and SKUs per year]'], note: '[Full case stories follow in phase 2, after approval from Ambu, Nilfisk and Fleggaard]', stats: [['120','countries supported for Nilfisk'],['[NO.]','Ambu packs per year'],['[NO.]','languages per pack']], imgs: [I('nilfisk-print'), I('ambu-ifu'), I('floor-saigon')], imgNote: '[Image to come: Nilfisk pack, language versions side by side. Ask David]' },
+    comp: { eyebrow: 'Compliance in print and packaging', title: 'What we check before files go to print', items: [
+      ['Regulated text','Compared word for word with your approved copy. Every version and approval is logged.',['Approved copy is the only source. Nothing is retyped.','Barcodes, legal marks and symbols checked against the specification.','Version history kept with the file and shared on request.']],
+      ['Environmental claims and recycling marks','Checked against the EU EmpCo rules and raised with you before delivery.',['Claims checked against the Empowering Consumers directive.','Recycling marks checked against the market they are printed for.','Unsupported wording flagged back to you before the file goes to print.']],
+      ['Responsibility','You approve before print. If an error is ours, we deliver corrected files at once and at our cost.',['Nothing goes to the printer without your approval in writing.','Preflight report delivered with every print-ready file.','Error rates reported monthly.']],
+      ['Confidentiality','Unreleased products stay on access-limited floors and separate networks.',['NDA with every person on the account, not only the company.','Product files stay in your systems. Nothing is moved to private devices.','No pack shown or reused for another client.']]] },
+    cta: 'Send us one product line', ctaText: 'Give us the master design and the markets. We produce the versions and print-ready files, and you compare with what you have today.'
+  },
+  publishing: {
+    crumb: 'Publishing', h1: 'Magazines and newspapers, laid out every publishing day',
+    intro: 'We lay out magazines and daily newspapers for Scandinavian publishers. More than 40,000 pages in 2026, and over 100 titles.',
+    heroImgs: [I('aller-magazines'), I('magazine-spreads'), I('nilfisk-print')],
+    facts: [['Experience','15 years with publishing clients'],['Coverage','Two shifts, up to seven days a week, all year'],['Languages','Danish, Swedish, Norwegian. Others with a human check'],['Systems','We work in your editorial system, or you can use our InPublisher platform.']],
+    list: { eyebrow: 'What we produce', title: 'From single pages to whole titles', items: [
+      ['Magazine layout','Weekly and monthly titles, from template pages to features.'],
+      ['Daily newspaper pages','Full layout of all pages, to the evening deadline.'],
+      ['Image handling','Selection, cut-outs, retouch and color correction. More than 100,000 images a year for one client.'],
+      ['Language adaptation','A title moved from one Nordic language to another, translated inside the layout file and checked by a person.'],
+      ['Specials and supplements','One-off issues and themed sections on top of the regular flow.'],
+      ['Ads for the title','Advertiser material built to the title’s specifications. See Ad production.']] },
+    listImg: I('aller-magazines'),
+    flow: { title: 'From page plan to print deadline', intro: 'Pages arrive through your editorial system and follow the same steps as in your own design team. Every new title starts with an onboarding session on the brand and the technical specifications.', steps: [
+      ['Preflight','Text and images checked against the page plan',''],['Layout','Built by a designer who knows the title',''],['Language adapt','Only when the title moves between languages','AI assisted'],['Design QC','Checked against the title’s design guide',''],['Approval','Your editor approves in your system',''],['Publish','Delivered to print or digital edition','']] },
+    caseB: { eyebrow: 'Client examples', title: 'Aller and Bonnier News', paras: ['For Aller we have produced magazines across Scandinavia since 2016. It comes to more than 40,000 magazine pages and 100,000 images a year.','For Bonnier News we run a dedicated magazine design team for more than 50 magazines in Denmark and Sweden. Editors and designers talk every day in shared channels, and the two management teams meet weekly.','We also lay out daily newspapers. Dagbladet in Norway and Bornholms Tidende in Denmark, both since 2024.'], note: '[Full case stories follow in phase 2, after approval from Aller and Bonnier News]', stats: [['2016','Magazine publishing since'],['40,000+','Magazine pages a year'],['50+','Magazine titles']], imgs: [I('team-saigon'), I('magazine-spreads'), I('floor-saigon')], imgNote: '[Image to come: Newspaper front page. Needs OK from the publisher]' },
+    comp: { eyebrow: 'Compliance in publishing', title: 'What publishers ask us about', items: [
+      ['Unpublished content','Stays on access-limited floors and separate networks until you publish.',['A dedicated floor for publishing clients, access by name.','Separate internal and external networks.','No page shown or reused for another client.']],
+      ['Personal data in editorial material','Handled under a data agreement with EU Standard Contractual Clauses.',['Material stays in your editorial system. Nothing is moved to private devices.','Access is limited to the people on your account, by name.','Deletion on request, confirmed in writing.']],
+      ['AI-assisted translation','Runs in enterprise tools with a data agreement. A person checks every page, and you are told where AI was used.',['Only used when a title moves between languages, and only if you ask for it.','A native speaker reads every translated page before it leaves us.','Your text is never used to train a model.']],
+      ['Image rights','We work with the images you supply or have licensed. We do not add our own.',['Images come from your archive or your agencies.','Stock or generated images only on your written instruction.','Credits and usage terms kept with the file.']]] },
+    cta: 'Test us on one title', ctaText: 'Send us one issue of a title you know well. We lay it out to your design guide, and you compare quality, speed and price with what you have today.'
+  },
+  backoffice: {
+    crumb: 'Marketing back office', h1: 'Your marketing production team for every market',
+    intro: 'Full service, not one craft. In some markets HQ hands us the work. In others the local marketers order from us directly. Either way they never see our name, and HQ keeps the brand control and the numbers.',
+    heroImgs: [I('nilfisk-print'), I('team-saigon'), I('boconcept-banners')],
+    facts: [['Model','Retainer for the standing work, per request for the rest'],['Ordering','HQ in some markets, local marketers in others'],['Systems','Yours. We work inside them'],['Client example','Nilfisk, marketing support in 120 countries']],
+    list: { eyebrow: 'What is inside', title: 'Full service for every market', note: '[Confirm what we do and do not take for Nilfisk.]', items: [
+      ['Asset production for all markets','Everything the markets need made, from one approved master. AI scales the versions, and a person checks each one.'],
+      ['Campaign rollout and local adaptation','A central campaign turned into what each market can actually run.'],
+      ['Web, CMS, DAM and email upkeep','The recurring digital work: pages, assets in the DAM, newsletters.'],
+      ['One point of contact','A named team, one address for every market, in your working hours.'],
+      ['Reporting to HQ','What each market ordered, what it cost and how long it took.'],
+      ['The rest of the recurring work','The small jobs that fill your own team’s week.']] },
+    listImg: I('boconcept-banners'), market: true,
+    why: [['White label','Your local marketers deal with your back office. Our name is not on it, and we do not contact your markets on our own.'],['Your systems','We work in your DAM, your order flow and your approval flow, not in a system you have to learn.'],['Control and speed','HQ sets the rules and sees every request. The markets get their work without waiting for HQ to route it.']],
+    flow: { title: 'How it runs', intro: 'Setup takes the brand, the systems and the ordering rules first. After that the markets order and the work comes back, with HQ seeing all of it.', steps: [
+      ['Setup','Brand, guidelines, systems and who may order what',''],['Routes','HQ ordering in some markets, local ordering in others',''],['Request','A market asks, the team confirms scope and time',''],['Production','Made from the approved master, in your systems',''],['Approval','Our QC first, then your approval flow',''],['Reporting','Volume, cost and turnaround per market to HQ','']] },
+    caseB: { eyebrow: 'Client example', title: 'Nilfisk', paras: ['We support Nilfisk marketing in 120 countries. The back office covers asset production for the markets, campaign rollout and local adaptation, and the upkeep of web, CMS, DAM and email.','Some markets order through HQ, others order from the team directly. Every request is logged and reported back to HQ.'], note: '[Markets served, requests a month, people on the team, languages, turnaround. Numbers to come from David.]', stats: [['120','countries supported'],['[NO.]','requests a month'],['[NO.]','people on the team']], imgs: [I('nilfisk-print'), I('ambu-labels'), I('floor-saigon')], imgNote: '[Image to come: Nilfisk, local market material. Ask David]' },
+    faq: { title: 'What HQ asks before they hand over a market', items: [
+      ['Do our local markets know they are talking to you?','No. The back office runs under your brand. Our name is not on the work, and we do not contact your markets on our own.'],
+      ['Whose systems do we work in?','Yours. Your DAM, your order flow and your approval flow. Your markets do not have to learn a new tool.'],
+      ['How do you keep local markets on brand?','Everything is produced from approved masters and to your guidelines. Every request is logged, and HQ sees what each market ordered, what it cost and how long it took.'],
+      ['What if a market asks for something outside the scope?','We flag it to HQ and price it per request. Nothing outside the agreed scope is produced without your approval.'],
+      ['How long does setup take, and can we start with one market?','Yes, start with one market and three months. [SETUP TIME: weeks from agreement to first live market. Ask David.]']] },
+    comp: { eyebrow: 'Compliance', title: 'What a white label setup has to hold', items: [
+      ['Confidentiality','Our name stays off the work, and unreleased material stays on access-limited floors and separate networks.',['White label in every file, mail and ticket. Your markets see your brand only.','NDA with every person on the account, not only the company.','No market material shown or reused for another client.']],
+      ['Your data','Handled under a data agreement with EU Standard Contractual Clauses.',['Files stay in your DAM and workflow. Nothing is moved to private devices.','Access is limited to the people on your account, by name.','Deletion on request, confirmed in writing.']],
+      ['AI in the work','We tell you when AI shapes a deliverable, and label it where Article 50 requires it.',['AI and Data Ethics Policy v1.1, public on inbold.com.','A named person is accountable for every delivery, AI or not.','Your material is never used to train a model.']],
+      ['Green claims','Local market claims checked against the EU EmpCo rules before anything is published.',['Claims checked against the Empowering Consumers directive.','Local wording that goes beyond HQ claims is flagged to HQ.','Checklist shared with your markets on request.']]] },
+    cta: 'Start with one market', ctaText: 'Give us one market and three months. We run the back office for it, report what it cost and how long it took, and you decide whether the rest follow.'
+  },
+  team: {
+    crumb: 'Your production team', h1: 'We are the execution arm of your in-house team',
+    intro: 'Your master creative and your guidelines. Our team adapts, versions and produces it, in your systems, in your approval flow, at the volume your markets ask for. We do not pitch against your creative agency.',
+    heroImgs: [I('boconcept-banners'), I('team-saigon'), I('aller-magazines')],
+    facts: [['Model','A named team or an agreed monthly capacity'],['Systems','Yours. We work in your DAM and workflow'],['Coverage','Two shifts, up to seven days a week'],['Start','Most clients start with a test, normally free']],
+    list: { eyebrow: 'What we take over', title: 'The work that eats your team’s week', items: [
+      ['Adaptation and versioning','One approved master, applied to every format, market and language.'],
+      ['Peak load','Campaign weeks and seasonal peaks covered without new headcount.'],
+      ['Asset scaling','One shoot or one design turned into every channel format you need.'],
+      ['Repro and print-ready files','Artwork delivered to your printers and their specifications.'],
+      ['Image work','Retouch, cut-outs, color correction and 3D visuals.'],
+      ['Always-on production','The recurring work: offers, pages, packs, banners, every week.']] },
+    listImg: I('boconcept-banners'), market: true,
+    flow: { title: 'How we plug into your team', intro: 'Onboarding starts with your guidelines, your systems and one real job. From there the team runs inside your flow, not beside it.', steps: [
+      ['Guidelines','Your brand book, specifications and tone, taught to the team',''],['Access','Your DAM, order system and approval flow',''],['Pilot','One real job, produced and measured',''],['Team set','Named designers and a shift lead on your account',''],['Run','Daily production in your working hours',''],['Review','Weekly operational, monthly on performance and contract','']] },
+    flowImgs: [I('building-saigon'), I('reception-saigon'), I('floor-saigon')],
+    caseB: { eyebrow: 'Client example', title: 'Bonnier News, Scandinavia', paras: ['Bonnier News owns the creative. We own the execution. A dedicated ad production team, Danish production management, native Swedish and Finnish shift leads, and our own floor with access limited to the people on the account.','The team works in Bonnier’s order system and against their graphic specifications. Two shifts, up to seven days a week.'], note: '[Full case story with numbers follows in phase 2, after approval from Bonnier News]', stats: [['2','shifts a day'],['100%','dedicated designers and shift leads'],['[NO.]','assets a month for one team']], imgs: [I('davidsen-ads'), I('team-saigon'), I('magazine-spreads')], imgNote: '' },
+    report: [['[NO.]','assets per team per month'],['[TIME]','turnaround by asset type'],['[NO.]','revisions per asset'],['[%]','brand guideline adherence']],
+    faq: { title: 'What in-house teams ask us first', items: [
+      ['How fast can a team be running?','Setup is guidelines, system access and one test job. A named team is usually in place after that. [RAMP-UP TIME: typical weeks from first call to full production. Ask David.]'],
+      ['Who owns the files and the master creative?','You do. We work in your systems, the files stay yours, and we keep no rights to the work. Nothing is reused for another client.'],
+      ['What happens if the quality slips?','A named shift lead signs off on every delivery. If an error is ours, we correct it at once and at our cost. Error rates are reported monthly. [CURRENT ERROR RATE: from Power BI. Ask David.]'],
+      ['Can we start with one market or one asset type?','Yes. Most clients start with a test on real work, normally free, then one market or one craft, and add from there.'],
+      ['What does it cost against doing it in-house?','Rates are agreed up front, as a retainer for the standing work and per request for the rest. [PRICE LEVEL: indicative saving against in-house or local agency production. Ask David and Huy.]']] },
+    comp: { eyebrow: 'Compliance', title: 'Built for a vendor assessment', items: [
+      ['Your material','Handled under a data agreement with EU Standard Contractual Clauses.',['Files stay in your DAM and workflow. Nothing is moved to private devices.','Access is limited to the people on your account, by name.','Deletion on request, confirmed in writing.']],
+      ['Confidentiality','Unpublished work stays on access-limited floors and separate networks.',['NDA with every person on the account, not only the company.','Separate floor and network for publishing and campaign work.','No client work shown or reused for another client.']],
+      ['AI in the work','We tell you when AI shapes a deliverable, and label it where Article 50 requires it.',['AI and Data Ethics Policy v1.1, public on inbold.com.','A named person is accountable for every delivery, AI or not.','Your material is never used to train a model.']],
+      ['Green claims','Environmental wording checked against the EU EmpCo rules before delivery.',['Claims checked against the Empowering Consumers directive.','Unsupported wording flagged back to you before release.','Checklist shared with your team on request.']]] },
+    cta: 'Start with a free test', ctaText: 'Send us a week of real work. We produce it to your guidelines, in your systems, and you compare quality, speed and price with what you do today. The test is normally free.'
+  }
+};
+class Component extends DCLogic {
+  state = { li: 0, mi: 0, ci: 0, fi: -1 };
+  renderVals() {
+    const key = (this.props && this.props.service) || 'ads';
+    const d = DATA[key] || DATA.ads;
+    const s = this.state;
+    const pad = i => String(i + 1).padStart(2, '0');
+    const tabs = (items, sel, k, dark) => items.map((it, i) => ({ n: pad(i), label: it[0], weight: i === sel ? '700' : '500', color: dark ? (i === sel ? '#fff' : '#8fb3a7') : (i === sel ? '#10201b' : '#3d4a45'), numColor: i === sel ? '#ff5a2b' : (dark ? '#8fb3a7' : '#3d4a45'), arrow: i === sel ? '→' : '', onClick: () => this.setState({ [k]: i }) }));
+    const li = d.list.items[s.li] || d.list.items[0];
+    const mi = MARKET[s.mi] || MARKET[0];
+    const ci = d.comp.items[s.ci] || d.comp.items[0];
+    const faqItems = d.faq ? d.faq.items : [];
+    return {
+      d,
+      facts: d.facts.map(([k, v]) => ({ k, v })),
+      listItems: tabs(d.list.items, s.li, 'li'),
+      listSel: { label: li[0], caption: li[1] },
+      hasMarket: !!d.market,
+      marketItems: tabs(MARKET, s.mi, 'mi'),
+      marketSel: { label: mi[0], caption: mi[1] },
+      hasWhy: !!d.why,
+      why: (d.why || []).map(([t, dd]) => ({ t, d: dd })),
+      flowBg: d.why ? '#e9dfc8' : '#f8f7f3',
+      steps: d.flow.steps.map(([t, dd, tag], i) => ({ n: pad(i), t, d: dd, tag })),
+      stats: d.caseB.stats.map(([n, l]) => ({ n, l })),
+      hasReport: !!d.report,
+      report: (d.report || []).map(([n, l]) => ({ n, l })),
+      hasFaq: !!d.faq,
+      faqTitle: d.faq ? d.faq.title : '',
+      faqs: faqItems.map(([q, a], i) => ({ q, a, open: s.fi === i, icon: s.fi === i ? '−' : '+', onClick: () => this.setState({ fi: s.fi === i ? -1 : i }) })),
+      compItems: tabs(d.comp.items, s.ci, 'ci', true),
+      compSel: { label: ci[0], lead: ci[1], points: ci[2].map((t, i) => ({ n: pad(i), t })) }
+    };
+  }
+}
+</script>
+</body>
+</html>

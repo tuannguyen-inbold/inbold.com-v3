@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case | InBold</title>
+<meta name="description" content="Case study from InBold.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://inbold.com/#org","name":"InBold","url":"https://inbold.com","email":"hello@inbold.com","numberOfEmployees":147,"foundingDate":"2024","sameAs":["https://www.linkedin.com/company/inbold-1","https://www.facebook.com/inboldagency","https://www.instagram.com/inbold_agency/"],"address":[{"@type":"PostalAddress","streetAddress":"Dronningens Tværgade 7B","postalCode":"1302","addressLocality":"Copenhagen K","addressCountry":"DK"},{"@type":"PostalAddress","streetAddress":"Götgatan 22A","postalCode":"118 46","addressLocality":"Stockholm","addressCountry":"SE"},{"@type":"PostalAddress","streetAddress":"Kristian Augusts gate 12","postalCode":"0164","addressLocality":"Oslo","addressCountry":"NO"},{"@type":"PostalAddress","streetAddress":"400/8b-10 Ung Van Khiem, Thanh My Tay Ward","postalCode":"","addressLocality":"Ho Chi Minh City","addressCountry":"VN"}]}</script>
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#f8f7f3">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#f8f7f3"/>
+    <text x="600" y="400" font-family="Georgia, serif" font-size="170" font-weight="700" fill="#10201b" text-anchor="middle">InBold<tspan fill="#ff5a2b">.</tspan></text>
+    <text x="600" y="490" font-family="Arial, sans-serif" font-size="42" letter-spacing="8" fill="#3d4a45" text-anchor="middle">WORK</text>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#f8f7f3}*{box-sizing:border-box}html,body{overflow-x:hidden}a{color:#ff5a2b}a:hover{color:#c8431a}</style>
+<script src="./cases.js"></script>
+<script src="./image-slot.js"></script>
+<script src="./bp.js"></script>
+</helmet>
+<div data-screen-label="Case" style="font-family:Montserrat,Helvetica,Arial,sans-serif;color:#10201b;background:#f8f7f3">
+  <dc-import name="Nav" mode="global" active="work" tone="light" accent="#ff5a2b" hint-size="100%,66px" style="position:sticky;top:0;z-index:90"></dc-import>
+  <!-- HEADER -->
+  <section data-pad style="max-width:1360px;margin:0 auto;padding:40px 28px 0">
+    <div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3d4a45"><a href="Home v2.dc.html" style="color:#3d4a45;text-decoration:none">Home</a> / <a href="Work.dc.html" style="color:#3d4a45;text-decoration:none">Work</a> / <span style="color:#10201b">{{ c.client }}</span></div>
+    <h1 style="font-weight:900;font-size:clamp(36px,5.6vw,80px);line-height:1.02;letter-spacing:-.03em;margin:26px 0 0;max-width:18ch;text-wrap:balance">{{ c.headline }}</h1>
+    <p style="margin:22px 0 0;font-size:clamp(18px,1.7vw,23px);line-height:1.5;color:#3d4a45;max-width:52ch;text-wrap:pretty">{{ standfirst }}</p>
+    <div data-g="s" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-top:36px;padding:20px 0;border-top:1px solid #10201b">
+      <sc-for list="{{ facts }}" as="f" hint-placeholder-count="4">
+        <div><div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3d4a45">{{ f.k }}</div><div style="font-size:15px;font-weight:700;line-height:1.45;margin-top:6px">{{ f.v }}</div></div>
+      </sc-for>
+    </div>
+  </section>
+  <!-- HERO MEDIA -->
+  <section data-pad style="max-width:1360px;margin:0 auto;padding:8px 28px 0">
+    <sc-if value="{{ hasVideo }}" hint-placeholder-val="{{ false }}">
+      <figure style="margin:0">
+        <div style="position:relative;width:100%;aspect-ratio:16/9;background:#0b3d32;border:2px dashed rgba(255,255,255,.35);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px;color:#fff">
+          <div style="width:72px;height:72px;border-radius:50%;background:#ff5a2b;display:flex;align-items:center;justify-content:center"><div style="width:0;height:0;border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:6px"></div></div>
+          <div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#ff5a2b">{{ video.label }}</div>
+          <div style="font-size:14px;line-height:1.55;color:rgba(255,255,255,.8);max-width:46ch">{{ video.brief }}</div>
+          <div style="position:absolute;left:20px;bottom:20px;background:#fff;color:#10201b;font-size:13.5px;font-weight:700;padding:10px 16px">▶ {{ video.film }}</div>
+        </div>
+        <figcaption style="font-size:14px;color:#3d4a45;margin-top:12px">{{ video.caption }}</figcaption>
+      </figure>
+    </sc-if>
+    <sc-if value="{{ hasImage }}" hint-placeholder-val="{{ true }}">
+      <div style="width:100%;aspect-ratio:21/9;background-color:#d9cdb3;background-size:cover;background-position:center;background-image:{{ bgimg }}"></div>
+    </sc-if>
+  </section>
+  <!-- AT A GLANCE -->
+  <sc-if value="{{ hasGlance }}" hint-placeholder-val="{{ true }}">
+    <section data-pad style="max-width:1360px;margin:0 auto;padding:64px 28px">
+      <div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3d4a45">At a glance</div>
+      <div data-g="m" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:36px 40px;margin-top:24px">
+        <sc-for list="{{ glance }}" as="g" hint-placeholder-count="3">
+          <div style="border-top:2px solid #10201b;padding-top:18px;display:flex;flex-direction:column;gap:10px"><div style="font-weight:900;font-size:clamp(56px,7vw,104px);line-height:1;letter-spacing:-.04em;color:#ff5a2b">{{ g.v }}</div><div style="font-weight:800;font-size:18px">{{ g.k }}</div><div style="font-size:15px;line-height:1.55;color:#3d4a45">{{ g.d }}</div></div>
+        </sc-for>
+      </div>
+    </section>
+  </sc-if>
+  <!-- 01 CHALLENGE -->
+  <section style="background:#e9dfc8"><div data-pad style="max-width:1360px;margin:0 auto;padding:64px 28px">
+    <div data-g="l" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:28px 64px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:13px;font-weight:800;color:#ff5a2b">01</span><h2 style="margin:0;font-weight:800;font-size:clamp(26px,3.2vw,40px);line-height:1.1;letter-spacing:-.02em">The challenge</h2></div>
+      <p style="margin:0;font-size:18px;line-height:1.7;color:#10201b;max-width:62ch;text-wrap:pretty">{{ c.challenge }}</p>
+    </div>
+  </div></section>
+  <!-- 02 INSIGHT & SOLUTION -->
+  <section data-pad style="max-width:1360px;margin:0 auto;padding:64px 28px">
+    <div data-g="l" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:28px 64px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:13px;font-weight:800;color:#ff5a2b">02</span><h2 style="margin:0;font-weight:800;font-size:clamp(26px,3.2vw,40px);line-height:1.1;letter-spacing:-.02em">Insight and solution</h2></div>
+      <div>
+        <sc-if value="{{ hasLead }}" hint-placeholder-val="{{ true }}"><p style="margin:0 0 14px;font-weight:800;font-size:clamp(22px,2.4vw,32px);line-height:1.25;letter-spacing:-.015em;text-wrap:balance">{{ c.insightLead }}</p></sc-if>
+        <p style="margin:0;font-size:18px;line-height:1.7;color:#3d4a45;max-width:62ch">{{ c.approach }}</p>
+      </div>
+    </div>
+    <sc-if value="{{ hasPillars }}" hint-placeholder-val="{{ true }}">
+      <div data-g="m" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:6px;margin-top:40px">
+        <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="2">
+          <div style="background:#fff;border:1px solid rgba(16,32,27,.12);padding:26px;display:flex;flex-direction:column;gap:10px"><span style="font-size:12px;font-weight:800;color:#ff5a2b">{{ p.n }}</span><h3 style="margin:0;font-weight:800;font-size:20px">{{ p.t }}</h3><p style="margin:0;font-size:15px;line-height:1.6;color:#3d4a45">{{ p.d }}</p></div>
+        </sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{ hasPair }}" hint-placeholder-val="{{ true }}">
+      <figure style="margin:40px 0 0">
+        <div data-g="l" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:6px">
+          <image-slot id="{{ pairA.id }}" style="display:block;width:100%;height:auto;aspect-ratio:4/3;background:#e9dfc8" shape="rect" placeholder="{{ pairA.t }}"></image-slot>
+          <image-slot id="{{ pairB.id }}" style="display:block;width:100%;height:auto;aspect-ratio:4/3;background:#e9dfc8" shape="rect" placeholder="{{ pairB.t }}"></image-slot>
+        </div>
+        <figcaption style="font-size:14px;color:#3d4a45;margin-top:12px">{{ pairCap }}</figcaption>
+      </figure>
+    </sc-if>
+  </section>
+  <!-- 03 EXECUTION -->
+  <sc-if value="{{ hasExec }}" hint-placeholder-val="{{ true }}">
+    <section style="background:#e9dfc8"><div data-pad style="max-width:1360px;margin:0 auto;padding:64px 28px">
+      <div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:13px;font-weight:800;color:#ff5a2b">03</span><h2 style="margin:0;font-weight:800;font-size:clamp(26px,3.2vw,40px);line-height:1.1;letter-spacing:-.02em">{{ execTitle }}</h2></div>
+      <div data-g="l" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:40px 6px;margin-top:32px">
+        <sc-for list="{{ execution }}" as="e" hint-placeholder-count="2">
+          <div style="display:flex;flex-direction:column;gap:16px"><image-slot id="{{ e.id }}" style="display:block;width:100%;height:auto;aspect-ratio:4/3;background:#d9cdb3" shape="rect" placeholder="{{ e.img }}"></image-slot><div><h3 style="margin:0;font-weight:800;font-size:22px">{{ e.t }}</h3><p style="margin:8px 0 0;font-size:15.5px;line-height:1.6;color:#3d4a45;max-width:52ch">{{ e.d }}</p></div></div>
+        </sc-for>
+      </div>
+    </div></section>
+  </sc-if>
+  <!-- 04 RESULTS -->
+  <section style="background:#0b3d32;color:#fff"><div data-pad style="max-width:1360px;margin:0 auto;padding:64px 28px">
+    <div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:13px;font-weight:800;color:#ff5a2b">{{ resultsN }}</span><h2 style="margin:0;font-weight:800;font-size:clamp(26px,3.2vw,40px);line-height:1.1;letter-spacing:-.02em;color:#fff">Results</h2></div>
+    <p style="margin:16px 0 0;font-size:18px;line-height:1.6;color:rgba(255,255,255,.85);max-width:60ch">{{ c.result }}</p>
+    <sc-if value="{{ hasMetrics }}" hint-placeholder-val="{{ true }}">
+      <div data-g="s" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;margin-top:36px">
+        <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="4">
+          <div style="border-top:2px solid rgba(255,255,255,.3);padding-top:16px"><div style="font-weight:900;font-size:clamp(40px,5vw,72px);line-height:1;letter-spacing:-.03em;color:#ff5a2b">{{ m.v }}</div><div style="font-weight:800;font-size:17px;margin-top:10px">{{ m.k }}</div><div style="font-size:14px;line-height:1.5;color:rgba(255,255,255,.75);margin-top:6px">{{ m.d }}</div></div>
+        </sc-for>
+      </div>
+    </sc-if>
+  </div></section>
+  <!-- CLIENT VOICE -->
+  <sc-if value="{{ hasQuote }}" hint-placeholder-val="{{ true }}">
+    <section data-pad style="max-width:1360px;margin:0 auto;padding:64px 28px">
+      <div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3d4a45">Client voice</div>
+      <figure style="margin:24px 0 0;display:flex;flex-wrap:wrap;gap:28px 40px;align-items:flex-start">
+        <image-slot id="{{ portraitId }}" style="flex:none;width:120px;height:120px" shape="circle" placeholder="Portrait"></image-slot>
+        <div style="flex:1 1 420px;max-width:900px"><blockquote style="margin:0;font-size:clamp(22px,2.6vw,34px);font-weight:700;line-height:1.35;letter-spacing:-.01em;text-wrap:pretty">“{{ quote.q }}”</blockquote><figcaption style="margin-top:18px;font-size:14.5px;color:#3d4a45"><b style="color:#10201b">{{ quote.n }}</b> — {{ quote.r }}</figcaption></div>
+      </figure>
+    </section>
+  </sc-if>
+  <!-- RECOGNITION + IN BRIEF -->
+  <section data-pad style="max-width:1360px;margin:0 auto;padding:0 28px 64px">
+    <sc-if value="{{ hasRecognition }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;border-top:1px solid rgba(16,32,27,.16);border-bottom:1px solid rgba(16,32,27,.16);padding:18px 0;margin-bottom:28px"><div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#ff5a2b">Recognition</div><span style="font-size:15px;font-weight:700">{{ c.recognition }}</span></div>
+    </sc-if>
+    <div data-g="l" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:6px">
+      <div style="background:#e9dfc8;padding:24px 26px"><div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3d4a45">In brief</div><p style="margin:10px 0 0;font-size:14.5px;line-height:1.7;color:#3d4a45">{{ brief }}</p></div>
+      <div style="background:#fff;border:1px solid rgba(16,32,27,.12);padding:24px 26px"><div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3d4a45">Services used</div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px"><sc-for list="{{ services }}" as="s" hint-placeholder-count="3"><a href="{{ s.href }}" style="text-decoration:none;color:#10201b;font-weight:700;font-size:14px;padding:10px 14px;background:#f8f7f3;border:1px solid rgba(16,32,27,.14);display:flex;gap:10px">{{ s.t }}<span style="color:#ff5a2b">→</span></a></sc-for></div></div>
+    </div>
+  </section>
+  <!-- NEXT CASE -->
+  <a href="{{ next.href }}" style="display:block;background:#e9dfc8;text-decoration:none;color:#10201b"><div data-pad style="max-width:1360px;margin:0 auto;padding:44px 28px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px"><div><div style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3d4a45">Next case</div><div style="font-weight:800;font-size:clamp(22px,2.6vw,34px);letter-spacing:-.015em;margin-top:8px">{{ next.title }}</div></div><span style="font-size:32px;color:#ff5a2b;font-weight:800">→</span></div></a>
+  <!-- CTA -->
+  <section style="background:#0b3d32"><div data-pad style="max-width:1360px;margin:0 auto;padding:60px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px">
+    <h2 style="font-weight:800;font-size:clamp(28px,4vw,48px);letter-spacing:-.02em;margin:0;color:#fff;max-width:20ch">Need creative at this scale?</h2>
+    <a href="Book a Call.dc.html" style="background:#ff5a2b;color:#fff;font-weight:700;font-size:15px;padding:13px 24px;border-radius:2px;text-decoration:none;white-space:nowrap">Book a call</a>
+  </div></section>
+  <dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { ready: !!window.INBOLD_CASES };
+  componentDidMount(){ if(!this.state.ready){ this.iv=setInterval(()=>{ if(window.INBOLD_CASES){ clearInterval(this.iv); this.setState({ready:true}); } },60); } }
+  componentWillUnmount(){ clearInterval(this.iv); }
+  renderVals(){
+    const all=window.INBOLD_CASES||[];
+    if(!all.length) return {};
+    const slug=new URLSearchParams(location.search).get('case');
+    let i=all.findIndex(x=>x.slug===slug); if(i<0) i=0;
+    const c=all[i];
+    const n=(c.next&&all.find(x=>x.slug===c.next))||all[(i+1)%all.length];
+    if(document.title.indexOf(c.client)<0) document.title=c.client+' – '+c.service+' | InBold';
+    const glance=(c.glance||[]).map(([v,k,d])=>({v,k,d:d||''}));
+    const metrics=(c.metrics||[]).map(([v,k,d])=>({v,k,d:d||''}));
+    const svcMap={Branding:'Branding.dc.html',Activation:'Activation.dc.html',PR:'PR.dc.html',Influencers:'Influencers.dc.html',Digital:'Digital.dc.html',Production:'Production.dc.html'};
+    const svcName={Activation:'Brand activation',PR:'PR & media relations',Influencers:'Influencer marketing',Digital:'Digital & media'};
+    const services=(c.services||[[svcName[c.filter]||c.filter,svcMap[c.filter]||'Agency.dc.html']]).map(([t,href])=>({t,href}));
+    const exec=(c.execution||[]).map(([t,d,img],k)=>({t,d,img:img||'Image',id:'case-'+c.slug+'-exec-'+(k+1)}));
+    const facts=[{k:'Client',v:c.clientFull||c.client},{k:c.sector?'Sector':'Service',v:c.sector||c.service},{k:'Market',v:c.market},{k:'What we did',v:c.whatWeDid||c.service}];
+    const ph=s=>!s||/^\[/.test(s), dot=s=>s.trim().replace(/[.\s]+$/,'')+'.';
+    const who=c.clientFull&&c.clientFull!==c.client?c.client+' ('+c.clientFull+')':c.client;
+    const what=c.whatWeDid?c.whatWeDid.charAt(0).toLowerCase()+c.whatWeDid.slice(1):services.map(s=>s.t).join(', ');
+    const brief=c.brief||[who+' worked with InBold on '+what+(ph(c.market)?'':' in '+c.market.replace(/ · /g,', ')), ph(c.challenge)?'':c.challenge.split(/(?<=\.)\s/)[0], ph(c.result)?'':c.result].filter(Boolean).map(dot).join(' ');
+    return { c, standfirst:c.standfirst||'', facts,
+      hasVideo:!!c.video, hasImage:!c.video, video:c.video||{}, bgimg:'url("'+c.img+'")',
+      hasGlance:glance.length>0, glance,
+      hasLead:!!c.insightLead,
+      hasPillars:!!(c.pillars&&c.pillars.length), pillars:(c.pillars||[]).map(([t,d],k)=>({n:'0'+(k+1),t,d})),
+      hasPair:!!c.pair, pairA:{id:'case-'+c.slug+'-pair-a',t:c.pair?c.pair[0]:''}, pairB:{id:'case-'+c.slug+'-pair-b',t:c.pair?c.pair[1]:''}, pairCap:c.pair?c.pair[2]:'',
+      hasExec:exec.length>0, execution:exec, execTitle:c.execTitle||'Execution', resultsN:exec.length?'04':'03',
+      hasMetrics:metrics.length>0, metrics,
+      hasQuote:!!c.quote, quote:c.quote?{q:c.quote[0],n:c.quote[1],r:c.quote[2]}:{}, portraitId:'case-'+c.slug+'-portrait',
+      hasRecognition:!!c.recognition, brief, services,
+      next:{title:n.headline&&!/^\[/.test(n.headline)?n.headline:n.client, href:'Case.dc.html?case='+n.slug} };
+  }
+}
+</script>
+</body>
+</html>
